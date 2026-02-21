@@ -1,0 +1,77 @@
+{
+  "name": "markdown-table-highlight",
+  "displayName": "Markdown Table Highlight",
+  "version": "0.0.1",
+  "description": "Highlights columns in Markdown tables",
+  "publisher": "pHo9UBenaA",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pHo9UBenaA/markdown-table-highlight"
+  },
+  "categories": [
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onLanguage:mdx"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Markdown Table Highlight",
+      "properties": {
+        "markdownTableHighlight.colors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "rgba(220,80,80,0.10)",
+            "rgba(200,160,50,0.10)",
+            "rgba(50,180,160,0.10)",
+            "rgba(80,120,200,0.10)"
+          ],
+          "description": "Array of color strings (hex, rgba, rgb) used for columns. Colors are applied cyclically."
+        },
+        "markdownTableHighlight.cursorColor": {
+          "type": "string",
+          "default": "rgba(200,100,160,0.18)",
+          "description": "Color for the cursor column highlight. Set to empty string to disable."
+        },
+        "markdownTableHighlight.singleTable": {
+          "type": "boolean",
+          "default": false,
+          "description": "Highlight only the table containing the cursor."
+        },
+        "markdownTableHighlight.updateDelay": {
+          "type": "integer",
+          "default": 100,
+          "minimum": 0,
+          "description": "Delay in milliseconds before updating highlights."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "package": "npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@types/vscode": "^1.109.0",
+    "@vscode/vsce": "^3.7.1",
+    "fast-check": "^4.5.3",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18",
+    "webpack": "^5.105.2",
+    "webpack-cli": "^6.0.1"
+  }
+}
