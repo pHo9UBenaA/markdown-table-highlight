@@ -61,12 +61,11 @@
     "watch": "webpack --mode development --watch",
     "test": "vitest run",
     "test:watch": "vitest",
-    "package": "npx @vscode/vsce package"
+    "package": "npx @vscode/vsce package --allow-missing-repository"
   },
   "devDependencies": {
     "@types/node": "^25.3.0",
     "@types/vscode": "^1.109.0",
-    "@vscode/vsce": "^3.7.1",
     "fast-check": "^4.5.3",
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.3",
